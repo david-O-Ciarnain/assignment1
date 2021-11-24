@@ -4,10 +4,18 @@ Använd variabeln blue för att "toggla" bakrgrundsfärgen mellan blå och vit
 för diven med id answer-one när man klickar på knappen
 */
 
-let blue = false;
-
-function taskOne() {
-  alert("Replace this alert with a solution");
+let blue = document.getElementById("answer-one");
+let x = 0
+const changeColor = () => blue.style.backgroundColor ="blue";
+const changeColorBack = () => blue.style.backgroundColor ="white";
+function taskOne(){
+if(x < 1) {
+ changeColor();
+  x++;
+  }else{
+    changeColorBack();
+    x--;
+  }
 }
 
 /*
@@ -19,7 +27,9 @@ läggas till i numbers-arrayen, innan arrayen renderas ut i diven med id answer-
 const numbers = [234, 986, 784];
 
 function taskTwo() {
-  alert("Replace this alert with a solution");
+  let randomNumber = Math.floor(Math.random() * 1000) + 1
+  numbers.push(randomNumber);
+  document.getElementById("answer-two").innerHTML = numbers
 }
 
 /*
@@ -30,7 +40,7 @@ inte är helg ska du trigga en alert med meddelandet "FML"
 */
 
 function taskThree() {
-  alert("Replace this alert with a solution");
+  
 }
 
 /*
