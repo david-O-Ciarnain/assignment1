@@ -27,7 +27,7 @@ läggas till i numbers-arrayen, innan arrayen renderas ut i diven med id answer-
 const numbers = [234, 986, 784];
 
 function taskTwo() {
-  let randomNumber = Math.floor(Math.random() * 1000) + 1
+  let randomNumber = Math.floor(Math.random() * 1000)
   numbers.push(randomNumber);
   document.getElementById("answer-two").innerHTML = numbers
 }
@@ -40,8 +40,16 @@ inte är helg ska du trigga en alert med meddelandet "FML"
 */
 
 function taskThree() {
+  const daysOfWeek = ["Söndag", "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag"];
+  let date = new Date();
+  let dayString = daysOfWeek[date.getDay()];
+  if(dayString === "Söndag" || dayString === "Lördag"){
+    alert("Woohooo it's weekend");
+  }else{
+    alert("FML");
+  };
   
-}
+};
 
 /*
 Uppgift 4: 
@@ -52,11 +60,19 @@ eller båda värdena inte är ett nummer ska en alertbox med meddelandet "Jag ka
 */
 
 function multiplier(valueOne, valueTwo) {
-  alert("Replace this alert with a solution");
-}
+  if(!isNaN(valueOne) && !isNaN(valueTwo)){
+    alert(valueOne * valueTwo);
+  }
+  else{
+    alert("Jag kan bara multiplicera numer");
+  };
+ 
+};
 
 function taskFour() {
-  multiplier();
+  
+  multiplier(3, 2);
+  
 }
 
 /*
@@ -75,8 +91,16 @@ const fruits = ["banan", "äpple", "citron", "apelsin", "päron"];
 const eatable = [];
 const trash = [];
 
+for(let searchedFruits of fruits){
+  if(searchedFruits ==="apelsin" || searchedFruits ==="päron"){
+    fruits.pop(searchedFruits)
+    trash.push(searchedFruits)
+  }else{
+    eatable.push(searchedFruits)
+  }
+};
 function taskFive() {
-  alert("Replace this alert with a solution");
+  
 }
 
 /*
