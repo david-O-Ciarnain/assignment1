@@ -189,7 +189,19 @@ answer-container till blå, annars ska den ändras till röd
 */
 
 function taskNine() {
-  alert("Replace this alert with a solution");
+  let bColor = document.querySelectorAll(".answer-container")
+  let date = new Date();
+  let checkTimeOverFive = date.getHours();
+if(checkTimeOverFive >= 17){
+ for(let i = 0; i < bColor.length; i++){
+   bColor[i].style.backgroundColor = "blue";
+ };
+}
+else{
+for(let i = 0; i < bColor.length; i++){
+  bColor[i].style.backgroundColor ="red";
+}
+}
 }
 
 /*
