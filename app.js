@@ -62,16 +62,15 @@ eller båda värdena inte är ett nummer ska en alertbox med meddelandet "Jag ka
 function multiplier(valueOne, valueTwo) {
   if(!isNaN(valueOne) && !isNaN(valueTwo)){
     alert(valueOne * valueTwo);
-  }
-  else{
+  }else{
     alert("Jag kan bara multiplicera numer");
-  };
- 
+  }
+    
 };
 
 function taskFour() {
   
-  multiplier(3, 2);
+  multiplier(3, 7);
   
 }
 
@@ -91,16 +90,20 @@ const fruits = ["banan", "äpple", "citron", "apelsin", "päron"];
 const eatable = [];
 const trash = [];
 
-for(let searchedFruits of fruits){
-  if(searchedFruits ==="apelsin" || searchedFruits ==="päron"){
-    fruits.pop(searchedFruits)
-    trash.push(searchedFruits)
-  }else{
-    eatable.push(searchedFruits)
-  }
-};
+
 function taskFive() {
-  
+
+  for(let i = 0; i < fruits.length; i++){
+    if(fruits[i] ==="apelsin" || fruits[i] ==="päron"){
+      trash.push(fruits[i]);
+    }else{
+      eatable.push(fruits[i]);
+    };
+  };
+  let textTrash = trash.toString()
+  let textEatable = eatable.toString()
+
+  document.getElementById("answer-five").innerHTML = "Ätligt: " + textEatable+ "<br> Skräp: " + textTrash;
 }
 
 /*
@@ -133,9 +136,14 @@ const notMarried = [];
 const overThirty = [];
 const underThirty = [];
 
+
 function taskSix() {
-  alert("Replace this alert with a solution");
+ 
+  
+ document.getElementById("answer-six").innerHTML ="Över 30: "+ "<br>" + 
+ "Under 30: " + "<br>" + "Gift: " + "<br>" + "OGift";
 }
+
 
 /*
 Uppgift 7: 
@@ -147,7 +155,18 @@ const addMeSomeLineBreaks =
   "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?";
 
 function taskSeven() {
-  alert("Replace this alert with a solution");
+  let addMeSomeLineBreaksFormatted ="";
+  for(let value of addMeSomeLineBreaks){
+    switch(value){
+      case ",":
+        addMeSomeLineBreaksFormatted += ", <br>"
+        break;
+        default: 
+        addMeSomeLineBreaksFormatted += value;
+        break;
+    }
+  }
+  document.getElementById("answer-seven").innerHTML = addMeSomeLineBreaksFormatted;
 }
 
 /*
@@ -157,7 +176,10 @@ efter att tre sekunder har gått ska diven visas som vanligt igen
 */
 
 function taskEight() {
-  alert("Replace this alert with a solution");
+  document.querySelector("#card-eight").style.display ="none"
+  setTimeout(()=>{
+document.querySelector("#card-eight").style.display ="block"
+  },3000);
 }
 
 /*
