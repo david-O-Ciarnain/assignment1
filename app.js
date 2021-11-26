@@ -65,7 +65,6 @@ function multiplier(valueOne, valueTwo) {
   }else{
     alert("Jag kan bara multiplicera numer");
   }
-    
 };
 
 function taskFour() {
@@ -94,16 +93,16 @@ const trash = [];
 function taskFive() {
 
   for(let i = 0; i < fruits.length; i++){
-    if(fruits[i] ==="apelsin" || fruits[i] ==="päron"){
+    if(fruits[i] === "apelsin" || fruits[i] === "päron"){
       trash.push(fruits[i]);
     }else{
       eatable.push(fruits[i]);
     };
   };
-  let textTrash = trash.toString()
-  let textEatable = eatable.toString()
+  let textTrash = trash.toString();
+  let textEatable = eatable.toString();
 
-  document.getElementById("answer-five").innerHTML = "Ätligt: " + textEatable+ "<br> Skräp: " + textTrash;
+  document.getElementById("answer-five").innerHTML = "Ätligt: " + textEatable + "<br> Skräp: " + textTrash;
 }
 
 /*
@@ -138,10 +137,25 @@ const underThirty = [];
 
 
 function taskSix() {
+ persons.forEach((person)=>{
+   if(person.age >= 30){
+   overThirty.push(person.name);
+   }
+   else{
+     underThirty.push(person.name);
+   }
+   if( person.married === true){
+    married.push(person.name)
+}
+else{
+    notMarried.push(person.name)
+}
+ })
  
   
- document.getElementById("answer-six").innerHTML ="Över 30: "+ "<br>" + 
- "Under 30: " + "<br>" + "Gift: " + "<br>" + "OGift";
+  
+ document.getElementById("answer-six").innerHTML =`Över 30: ${overThirty}<br> 
+ Under 30: ${underThirty}<br>Gift: ${married}<br> OGift: ${notMarried} `;
 }
 
 
@@ -192,16 +206,11 @@ function taskNine() {
   let bColor = document.querySelectorAll(".answer-container")
   let date = new Date();
   let checkTimeOverFive = date.getHours();
-if(checkTimeOverFive >= 17){
- for(let i = 0; i < bColor.length; i++){
-   bColor[i].style.backgroundColor = "blue";
- };
-}
-else{
-for(let i = 0; i < bColor.length; i++){
-  bColor[i].style.backgroundColor ="red";
-}
-}
+if(checkTimeOverFive > 17)
+   bColor.forEach((bC) => bC.style.backgroundColor = "blue");
+else
+  bColor.forEach((bC) => bC.style.backgroundColor = "red");
+
 }
 
 /*
@@ -218,11 +227,26 @@ om någon av dessa conditions inte uppfylls ska du visa en alertbox med texten "
 */
 
 function calculator(valueOne, valueTwo, operator) {
-  alert("Replace this alert with a solution");
+  if(!isNaN(valueOne) && !isNaN(valueTwo) && typeof operator === "string"){
+switch(operator){
+  case "add":
+    alert(valueOne + valueTwo);
+   break;
+    case "subtract":
+      alert(valueOne - valueTwo);
+      break;
+      case "multiply":
+        alert(valueOne * valueTwo);
+        break;
+        case "divide":
+          alert(valueOne / valueTwo);
+          break;
+    }
+  }
 }
 
 function taskTen() {
   //första och andra argumentet ska vara nummer, tredje argumentet ska
   //vara en sträng med något av värdena "add", "subtract", "multiply", "divide"
-  calculator();
-}
+  calculator(2,3, "add");
+};
