@@ -61,7 +61,7 @@ eller båda värdena inte är ett nummer ska en alertbox med meddelandet "Jag ka
 
 function multiplier(valueOne, valueTwo) {
   if(!isNaN(valueOne) && !isNaN(valueTwo)){
-    alert(valueOne * valueTwo);
+    alert(`Produkten är: ${valueOne * valueTwo}`);
   }else{
     alert("Jag kan bara multiplicera numer");
   }
@@ -102,7 +102,7 @@ function taskFive() {
   let textTrash = trash.toString();
   let textEatable = eatable.toString();
 
-  document.getElementById("answer-five").innerHTML = "Ätligt: " + textEatable + "<br> Skräp: " + textTrash;
+  document.getElementById("answer-five").innerHTML = `Ätligt: ${textEatable} <br> Skräp: ${textTrash}`;
 }
 
 /*
@@ -147,17 +147,17 @@ function taskSix() {
    if( person.married === true){
     married.push(person.name)
 }
-else{
+  else{
     notMarried.push(person.name)
 }
- })
- 
+ });
   
-  
- document.getElementById("answer-six").innerHTML =`Över 30: ${overThirty}<br> 
- Under 30: ${underThirty}<br>Gift: ${married}<br> OGift: ${notMarried} `;
-}
-
+ document.getElementById("answer-six").innerHTML =
+ `Över 30: ${overThirty}<br> 
+  Under 30: ${underThirty}<br>
+  Gift: ${married}<br>
+  OGift: ${notMarried}`;
+};
 
 /*
 Uppgift 7: 
@@ -173,7 +173,7 @@ function taskSeven() {
   for(let value of addMeSomeLineBreaks){
     switch(value){
       case ",":
-        addMeSomeLineBreaksFormatted += ", <br>"
+        addMeSomeLineBreaksFormatted += ", <br>";
         break;
         default: 
         addMeSomeLineBreaksFormatted += value;
@@ -190,11 +190,11 @@ efter att tre sekunder har gått ska diven visas som vanligt igen
 */
 
 function taskEight() {
-  document.querySelector("#card-eight").style.display ="none"
+  document.querySelector("#card-eight").style.display ="none";
   setTimeout(()=>{
-document.querySelector("#card-eight").style.display ="block"
+document.querySelector("#card-eight").style.display ="block";
   },3000);
-}
+};
 
 /*
 Uppgift 9: 
@@ -206,12 +206,12 @@ function taskNine() {
   let bColor = document.querySelectorAll(".answer-container")
   let date = new Date();
   let checkTimeOverFive = date.getHours();
-if(checkTimeOverFive > 17)
+if(checkTimeOverFive > 16)
    bColor.forEach((bC) => bC.style.backgroundColor = "blue");
 else
   bColor.forEach((bC) => bC.style.backgroundColor = "red");
 
-}
+};
 
 /*
 Uppgift 10: 
@@ -227,8 +227,10 @@ om någon av dessa conditions inte uppfylls ska du visa en alertbox med texten "
 */
 
 function calculator(valueOne, valueTwo, operator) {
+  
   if(!isNaN(valueOne) && !isNaN(valueTwo) && typeof operator === "string"){
-switch(operator){
+  
+    switch(operator){
   case "add":
     alert(valueOne + valueTwo);
    break;
@@ -241,12 +243,15 @@ switch(operator){
         case "divide":
           alert(valueOne / valueTwo);
           break;
+          default:
+            alert("Något är fel");
     }
-  }
-}
-
+  } else{
+    alert("Något är fel");
+  };
+};
 function taskTen() {
   //första och andra argumentet ska vara nummer, tredje argumentet ska
   //vara en sträng med något av värdena "add", "subtract", "multiply", "divide"
-  calculator(2,3, "add");
+  calculator(2,3,"add");
 };
