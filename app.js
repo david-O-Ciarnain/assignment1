@@ -41,15 +41,16 @@ inte är helg ska du trigga en alert med meddelandet "FML"
 
 function taskThree() {
   switch(new Date().getDay()){
-    default:
-        console.log("FML");
-        break;
+    
         case 6:
             console.log("whoooo");
             break;
             case 0:
                 console.log("whoooo");
                 break;
+                default:
+        console.log("FML");
+        break;
 }
 };
 
