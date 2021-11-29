@@ -40,15 +40,17 @@ inte är helg ska du trigga en alert med meddelandet "FML"
 */
 
 function taskThree() {
-  const daysOfWeek = ["Söndag", "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag"];
-  let date = new Date();
-  let dayString = daysOfWeek[date.getDay()];
-  if(dayString === "Söndag" || dayString === "Lördag"){
-    alert("Woohooo it's weekend");
-  }else{
-    alert("FML");
-  };
-  
+  switch(new Date().getDay()){
+    default:
+        console.log("FML");
+        break;
+        case 6:
+            console.log("whoooo");
+            break;
+            case 0:
+                console.log("whoooo");
+                break;
+}
 };
 
 /*
